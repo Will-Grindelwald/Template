@@ -1,4 +1,4 @@
-
+# ------------------------ compiler options ------------------------
 DIR     := ./debug
 ELF     := $(DIR)/main_exe
 #SOURCES:= $(wildcard *.cpp) $(wildcard *.c) $(wildcard *.cc) $(wildcard *.h)
@@ -14,6 +14,7 @@ DEFINES :=                                       #用于条件编译
 CFLAGS  := -g  -Wall $(DEFINES) $(INCLUDE)       #调试
 #CFLAGS := -O2 -Wall $(DEFINES) $(INCLUDE)       #发布
 
+# ----------------------------- target -----------------------------
 all     : cleanln mkdebug $(ELF) copy
 cleanln :
 	@rm -rf ./main_exe
