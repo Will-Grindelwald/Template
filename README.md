@@ -1,8 +1,7 @@
 # Makefile
 这是一个通用的`Makefile`, 经过简单修改可以适用于大部分的个人小项目
 
-~~ToDo: ~~
-
+~~ToDo:~~  
 ~~- [ ] 学习写多级目录的可以用于大项目的`Makefile`~~
 
 **Update: **
