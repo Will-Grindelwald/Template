@@ -1,4 +1,4 @@
-# Makefile
+# Makefile-CMake
 
 这是一个通用的`Makefile`, 经过简单修改可以适用于大部分的个人小项目
 
