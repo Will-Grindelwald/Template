@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.ljc</groupId>
+	<artifactId>Template</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>Template</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- 定义主要依赖库的版本 -->
+		<jdk.version>1.7</jdk.version>
+		<junit.version>4.12</junit.version>
+		<!-- <mysql.version>5.1.39</mysql.version> -->
+		<!-- maven 插件版本 -->
+		<maven-assembly-plugin.version>3.0.0</maven-assembly-plugin.version>
+		<maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
+	</properties>
+
+	<!-- 设定主仓库，按设定顺序进行查找 -->
+	<repositories>
+		<!-- <repository>
+			<id>jeecg</id>
+			<name>jeecg Repository</name>
+			<url>http://maven.jeecg.org/nexus/content/repositories/jeecg</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository> -->
+	</repositories>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- 数据库相关依赖包 start -->
+		<!-- <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency> -->
+		<!-- 数据库相关依赖包 end -->
+
+	</dependencies>
+
+	<build>
+
+		<plugins>
+
+			<!-- define the project compile level -->
+			<plugin>
+				<!-- NOTE: Don't need groupId which is org.apache.maven.plugins by default. -->
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>${maven-assembly-plugin.version}</version>
+				<configuration>
+					<!-- 指定主类 -->
+					<!-- <archive>
+						<manifest>
+							<mainClass></mainClass>
+						</manifest>
+					</archive> -->
+					<descriptorRefs>
+						<!-- 会将所有依赖都解压打包到生成物中 -->
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+						<!-- 只将源码目录下的文件打包 -->
+						<!-- <descriptorRef>src</descriptorRef> -->
+						<!-- 将整个 project 资源打包 -->
+						<!-- <descriptorRef>project</descriptorRef> -->
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+</project>
